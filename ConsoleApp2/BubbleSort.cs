@@ -14,6 +14,7 @@ namespace ConsoleApp2
         {
             //////////wczytanie danych
             string linijka;
+            Console.Clear();
             Console.WriteLine("Podaj ścieżkę pliku zdanymi:");
             string miejsce_odczytu = Console.ReadLine();
             //"C:/Users/Arek/source/repos/Strukt_danych_i_algor_cs/ConsoleApp2/do_sortowania.txt"

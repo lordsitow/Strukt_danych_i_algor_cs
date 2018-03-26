@@ -127,7 +127,47 @@ namespace ConsoleApp2
             Console.Write(" " + n.number);
             display(n.rightLeaf);
         }
-
     }
-    
+    class wykonywujacy
+    {
+        public static void program()
+        {
+            BinaryTree b = new BinaryTree();
+            int a = 0;
+            while (a != 9)
+            {
+                Console.Clear();
+                Console.WriteLine("Witaj, którą czynność chcesz wykonać:");
+                Console.WriteLine("1.Wprowadź wartosć do drzewa");
+                Console.WriteLine("2.przeszukaj drzewo");
+                Console.WriteLine("3.Wyświetl drzewo");
+                Console.WriteLine("9.Powrót do menu głównego");
+
+
+                if (!Int32.TryParse(Console.ReadLine(), out a))
+                {
+                    continue;
+                }
+
+                if (a == 1)
+                {
+                    Console.WriteLine("Jaką wartosć chcesz wprowadzić?");
+                    int q = Int32.Parse(Console.ReadLine());
+                    b.insert(q);
+                }
+                if (a == 2)
+                {
+                    Console.WriteLine("Jaką wartosć chcesz znaleść?");
+                    int q = Int32.Parse(Console.ReadLine());
+                    b.search(q); 
+                }
+                if (a == 3)
+                {
+                    Console.WriteLine("To są wartosci w drzewie:");
+                    b.display();
+                }
+                Console.ReadKey();
+            }
+        }
+    }
 }

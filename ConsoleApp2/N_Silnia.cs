@@ -14,6 +14,7 @@ namespace ConsoleApp2
     {
         public static void Calculate()
         {
+            Console.Clear();
             Console.WriteLine("Silnie z jakiej liczby chcesz policzyć:");
 
 

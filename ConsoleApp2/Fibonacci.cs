@@ -12,6 +12,7 @@ namespace ConsoleApp2
     {
         public static void Calculate()
         {
+            Console.Clear();
             Console.WriteLine("Który element ciągu fibo chcesz policzyć:");
             int x = 0;
             try

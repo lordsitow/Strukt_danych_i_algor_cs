@@ -16,6 +16,7 @@ namespace ConsoleApp2
         {
             //////////wczytanie danych
             string linijka;
+            Console.Clear();
             Console.WriteLine("Podaj ścieżkę pliku zdanymi:");
             string miejsce_odczytu = Console.ReadLine();
             Console.WriteLine("Podaj ścieżkę pliku do zapisania:");
