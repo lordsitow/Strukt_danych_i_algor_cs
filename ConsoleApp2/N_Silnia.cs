@@ -47,8 +47,8 @@ namespace ConsoleApp2
             watch.Stop();
             ////////////Wyświetlenie wyników
             Console.WriteLine("Silnia z {0} to:{1}", x,y);
-            Console.WriteLine("Czas pracy:{0}[us]" ,watch.Elapsed);
-            Console.WriteLine("Zużyta pamięć:{0}[us]", (after-before));
+            Console.WriteLine("Czas pracy:{0}[s*10^-7]", watch.Elapsed);
+            //Console.WriteLine("Zużyta pamięć:{0}[us]", (after-before));
         }
     }
 }

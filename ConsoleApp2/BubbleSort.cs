@@ -15,7 +15,7 @@ namespace ConsoleApp2
             //////////wczytanie danych
             string linijka;
             Console.Clear();
-            Console.WriteLine("Podaj ścieżkę pliku zdanymi:");
+            Console.WriteLine("Podaj ścieżkę pliku zdanymi(liczby oddzielone średnikiem):");
             string miejsce_odczytu = Console.ReadLine();
             //"C:/Users/Arek/source/repos/Strukt_danych_i_algor_cs/ConsoleApp2/do_sortowania.txt"
             Console.WriteLine("Podaj ścieżkę pliku do zapisania:");
@@ -58,8 +58,8 @@ namespace ConsoleApp2
             {
                 Console.Write("{0};",dane[i]);
             }
-            Console.WriteLine("\n \n Czas pracy:{0}[ms]:",watch.Elapsed);
-            /////////////////////Zapis do pliku
+            Console.WriteLine("\n \n Czas pracy:{0}[s*10^-7]:", watch.Elapsed);
+            /////////////////////Zapis do pliku Arkadiusz Tokarski 226742
 
             using (StreamWriter zapis_dane = new StreamWriter(miejsce_zapisu))
             {

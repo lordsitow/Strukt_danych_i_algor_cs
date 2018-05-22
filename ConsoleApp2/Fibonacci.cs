@@ -34,8 +34,8 @@ namespace ConsoleApp2
             BigInteger y = Liczenie(x);
             watch.Stop();
             //////////////Wyświetlenie wyników
-            Console.Write("{0} element ciągu fibo to: {1}", x, y);
-            Console.WriteLine("Czas pracy:{0}[us]", watch.Elapsed);
+            Console.WriteLine("{0} element ciągu fibo to: {1}", x, y);
+            Console.WriteLine("Czas pracy:{0}[s*10^-7]", watch.Elapsed);
         }
     }
 }
