@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 
 namespace ConsoleApp2
 {
@@ -96,12 +98,15 @@ namespace ConsoleApp2
         public static void doktor_edker()
         {
             Heap heap = new Heap();
+            int a = 0;
+            int b = 2;
+            TimeSpan[] czasy;
             int iter = 0;
             while (iter != 9)
             {
                 Console.Clear();
                 Console.WriteLine("Witaj, którą czynność chcesz wykonać:");
-                Console.WriteLine("1.Wypełnij kopiec (1000 losowych wartosci z zakresu 0-1000)");
+                Console.WriteLine("1.Testowanie czasów Kopcowania");
                 Console.WriteLine("2.Usuń największą wartość w kopcu");
                 Console.WriteLine("3.Wyświetl kopiec");
                 Console.WriteLine("9.Wyjdź do menu głównego");
@@ -112,10 +117,42 @@ namespace ConsoleApp2
                 }
                 if (iter == 1)
                 {
+                    Console.WriteLine("Dla jakiej ilości liczb chcesz przetestować czasy");
+                    Int32.TryParse(Console.ReadLine(), out a);
+                    czasy = new TimeSpan[a];
                     Random RandomNumber = new Random();
-                    for (int i = 0; i < 1000; i++)
+                    while (a != b)
                     {
-                        heap.Insert(RandomNumber.Next(1000));
+                        var watch=Stopwatch.StartNew();
+                        for (int i = 0; i < b; i++)
+                        {
+                            heap.Insert(RandomNumber.Next(1000));
+                        }
+                        watch.Stop();
+                        czasy[b] = watch.Elapsed;
+                        b++;
+                    }
+                    ///////////////////////// Wyświetlanie Danych Wyjściowych
+                    Console.WriteLine("\n To są czasy sortowania dla kolejnych elementów");
+                    for (int i = 0; i < czasy.Length; i++)
+                    {
+                        Console.WriteLine("{0}", czasy[i]);
+                    }
+                    //////////zapis do pliku 
+                    Console.WriteLine("czy chcesz zapisać czasy szukania do pliku txt?[y/n]");
+                    string czy = Console.ReadLine();
+                    if (czy == "y")
+                    {
+                        Console.WriteLine("podaj sciezke do pliku txt");
+                        czy = Console.ReadLine();
+                        using (StreamWriter zapis_dane = new StreamWriter(czy))
+                        {
+                            for (int i = 0; i < czasy.Length; i++)
+                            {
+                                zapis_dane.WriteLine(czasy[i]);
+                            }
+
+                        }
                     }
                 }
                 if (iter == 2) {heap.DeleteMax();}

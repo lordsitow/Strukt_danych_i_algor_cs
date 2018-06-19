@@ -79,21 +79,29 @@ namespace ConsoleApp2
                     watch.Stop();
                     czasy_sortowania[p] = watch.Elapsed;
              }
+            /////////////////////////
+            
             ///////////////////////// Wyświetlanie Danych Wyjściowych
             Console.WriteLine("\n To są czasy sortowania dla kolejnych elementów");
             for (int i = 0; i < czasy_sortowania.Length; i++)
             {
                 Console.WriteLine("{0}", czasy_sortowania[i]);
             }
-            Console.Read();
-
-            using (StreamWriter zapis_dane = new StreamWriter())
+            //////////zapis do pliku 
+            Console.WriteLine("czy chcesz zapisać czasy szukania do pliku txt?[y/n]");
+            string czy = Console.ReadLine();
+            if (czy == "y")
             {
-                for (int i = 0; i < czasy_sortowania.Length; i++)
+                Console.WriteLine("podaj sciezke do pliku txt");
+                czy = Console.ReadLine();
+                using (StreamWriter zapis_dane = new StreamWriter(czy))
                 {
-                    zapis_dane.WriteLine(czasy_sortowania[i]);
+                    for (int i = 0; i < czasy_sortowania.Length; i++)
+                    {
+                        zapis_dane.WriteLine(czasy_sortowania[i]);
+                    }
+
                 }
-                
             }
                 /////////////Koniec funkcji
         }
